@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Navbar from "./Navbar/Navbar";
+import Home from "./components/Home";
+import AddContact from "./components/AddContact";
 import { Route, Routes } from "react-router-dom";
+import EditContact from "./components/EditContact";
 
 function App() {
   return (
@@ -11,9 +12,9 @@ function App() {
       <ToastContainer />
       <Navbar />
       <Routes>
-        <Route path="/" element={<h1>React Redux App</h1>}></Route>
-        <Route path="/add" element={<h1>React Reeeeedux App</h1>}></Route>
-        <Route path="/edit/:id" element={<h1>React Redux App</h1>}></Route>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/add" element={<AddContact />} />
+        <Route path="/edit/:id" element={<EditContact />}></Route>
       </Routes>
     </div>
   );
