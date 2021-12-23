@@ -6,14 +6,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createStore } from "redux";
+import contactReducer from "./redux/reducers/contactReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { Provider } from "react-redux";
 
-const store = createStore();
+const store = createStore(contactReducer, composeWithDevTools());
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
